@@ -83,3 +83,4 @@ F1 或 Ctrl+Shift+P: 打开命令面板。在打开的输入框内，可以输�
 # vscode结合git
 1. 打开git工作区
 2. 若要修改提交项目，则点击source control的图标然后即可修改提交即可。
+3. 若要推送到github 则点击推送即可。
