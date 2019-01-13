@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="keywords" content="HTML, CSS, JavaScript">
+   <meta name="author" content="Lucas">
+   <meta http-equiv="refresh" content="10">
+   <title>表单1</title>
+</head>
+<body>
+   <form action="/getInfo" mathod="get">
+      <div class="username">
+        <label for="">姓名:</label>
+        <input type="text" name="username" placeholder="用户名">
+      </div>
+      <div class="password">
+        <lable>密码:</lable>
+        <input type="password" name="password">
+      </div>
+      <div class="sex">
+        <label for="">性别:</label>
+        <input type="radio" name="sex"value="male" >男
+        <input type="radio" name="sex"value="female" >女
+      </div>
+      <div class="select">
+          <label>城市:</label>
+        <select name="city">
+          <option value="beijing" selected>北京</option>
+          <option value="tianjing" >天津</option>
+          <option value="shanghai" >上海</option>
+          
+        </select>
+      </div>
+      <div class="skill">
+        <label for="">擅长技术:</label>
+        <input type="checkbox" name="skill"value="html" >html
+        <input type="checkbox" name="skill"value="css" >css
+        <input type="checkbox" name="skill" value="js">js        
+        <input type="checkbox" name="skill" value="java">java
+      </div>
+      
+      
+      <div class="submit">
+        <button type="submit">提交</button>
+
+        <button type="reset">重置</button>
+      </div>
+    </form>
+   
+</body>
+</html>
