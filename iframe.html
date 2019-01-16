@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+
+
+        .left {
+            float: left;
+            width: calc((100% - 102px)/2);
+            height: 100vh
+        }
+
+        .mid {
+            float: left;
+            width: 100px;
+        }
+
+        .mid a {
+            display: block
+        }
+
+        .right {
+            float: right;
+            width: calc((100% - 102px)/2);
+            height: 100vh
+        }
+    </style>
+</head>
+
+<body>
+
+    <iframe name="iframe1" src="http://www.zhihu.com" class="left"></iframe>
+    <div class="mid">
+        <a href="https://www.baidu.com" target="iframe1">百度</a>
+        <a href="https://www.csdn.net/" target="iframe1">CSDN</a>
+        <a href="https://www.mafengshe.com" target="iframe2">码蜂社</a>
+    </div>
+    <iframe name="iframe2" src="http://www.zhihu.com" class="right"></iframe>
+
+</body>
+
+</html>
