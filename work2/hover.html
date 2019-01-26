@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>hover</title>
+    <style>
+      .mue{
+  width: 50px;
+  padding: 0px;
+  float: left;
+}
+.mue>li{
+  background-color: rgba(204, 204, 204, 0);
+  list-style: none;
+  line-height: 40px;
+}
+.mue ul{
+  display: none;
+  list-style: none;
+}
+a:hover{
+  color: red;
+  background-color: #fff;
+}
+.mue:hover ul{
+  position: absolute;
+  top: auto;
+  padding: 0px;
+  display: block;
+  
+
+}
+.first>a:hover {
+  color:red;
+ 
+}
+
+    </style>
+</head>
+<body>
+    <ul class="mue">
+      <li class="first"><a>学习</a></li>
+      <ul>
+        <li><a href="http://www.github.com">github</a></li>
+        <li><a href="http://www.csdn.net">csdn</a></li>
+        <li><a href="http://www.mafengshe.com">码蜂社</a></li>
+      </ul>
+    </ul>
+    <ul class="mue">
+      <li class="first"><a>生活</a></li>
+      <ul>
+        <li><a href="http://www.sina.com.cn">新浪</a></li>
+        <li><a href="http://www.baidu.com">百度</a></li>
+        
+      </ul>
+    </ul>
+  </body>
+</html>
