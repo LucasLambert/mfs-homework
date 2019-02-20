@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      min-width: 800px;
+    }
+
+    header,
+    footer {
+      background: yellow;
+      height: 100px;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+    }
+
+    .container>.left {
+      order: -1;
+      flex: 0 0 100px;
+      background: blue;
+    }
+
+    .container>.main {
+      flex: 1;
+    }
+
+    .container>.right {
+      flex: 0 0 150px;
+      background: blue
+    }
+  </style>
+</head>
+
+<body>
+  <header>头部</header>
+  <div class="container">
+    <main class="main">
+    圣杯布局
+    </main>
+    <nav class="left">
+     
+    </nav>
+    <aside class="right">
+      
+    </aside>
+  </div>
+  <footer>
+    底部
+  </footer>
+</body>
+
+</html>
