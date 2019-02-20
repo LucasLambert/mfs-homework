@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>码蜂社导航栏</title>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        }
+
+       
+        ul{
+            list-style: none;
+            background: yellow
+           
+           
+        }
+        li{
+            float: left;/*浮动:文本悬浮。脱离了文档流，悬浮在文档上方*/
+            width: 80px;
+            color:black;
+            margin: 10px;
+            font-size: 15px;
+            text-align: center;/*文本居中*/
+            cursor: pointer;
+        }
+        .li1{
+            font-weight:bold;
+            margin-left: 400px;
+            cursor:default;
+        }
+        .nav1:hover .nav2{
+        display: block;
+        position: absolute;
+        font-size: 13px;
+        left: 20px;
+        padding-top: 10px;
+    }
+    .nav1:hover ul li {
+    	 padding-top: 10px;
+    	 width: 60px;
+    }
+    .nav2 {
+        display: none;
+        list-style: none;
+       
+    }
+
+  .nav1 {
+        position: relative;
+     
+    }
+    </style>
+ 
+       <title>导航</title>
+</head>
+<body>
+ 
+<ul>
+    <li class="li1"> 码蜂设</li>
+    <li>首页</li>
+    <li>基础闯关班</li>
+    <li>web闯关版</li>
+    <li>课程选择</li>
+    <li class="nav1">社区
+            <ul class="nav2">
+                    <li><a href="#">论坛</a></li>
+                    <li><a href="#">闯关任务</a></li>
+                </ul>
+    </li>
+    <li>关于我们</li>
+  
+    <div class="box2 " style="clear: both"></div>
+</ul>
+
+</body>
+
