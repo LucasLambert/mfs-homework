@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .circle-big{
+            width: 24px;
+            height: 24px;
+            top: 50%;
+            left: 50%;
+            margin-top: -12px;
+            margin-left: -12px;
+            border-radius: 12px;
+            animation-delay: -0.9s;
+           
+           
+        }
+        .circle-mid{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: 50%;
+            left: 50%;
+            margin-top: -4px;
+            margin-left: -4px;
+            border-radius: 100px;
+           background: red;
+           animation: move 4s linear infinite;
+           
+           
+        }
+        .circle-small{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: 50%;
+            left: 50%;
+            margin-top: -4px;
+            margin-left: -4px;
+            border-radius: 100px;
+           background: red;
+        
+           animation: move 4s linear infinite;
+           
+           
+        }
+        .circle-container{
+              width:200px;
+              height:50px;
+              background: yellow;
+              position: absolute;
+            top:40%;
+            left: 40%;
+            animation: rotate 5s linear infinite;
+             
+        }
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(-64px, 0);
+            }
+            75% {
+                transform: translate(32px, 0);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+    
+@keyframes rotate
+{
+    0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+}
+.row{
+    width: 64px;
+            height: 24px;
+            position: absolute;
+            top: 4px;
+            left: 0;
+            transform-origin: 4px 4px;
+
+}
+
+
+        </style>
+</head>
+<body>
+      <div class="circle-container">
+      <div class="row">
+          <div class="circle-big"></div>
+          </div>
+    </div>
+    
+
+</body>
+</html>
