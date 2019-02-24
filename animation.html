@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+          [class*="circle-"]{
+            animation: move 2.5s linear infinite;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background: black;
+        }
         .circle-big{
             width: 24px;
             height: 24px;
@@ -19,42 +26,43 @@
            
         }
         .circle-mid{
-            position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 16px;
+            height: 16px;
             top: 50%;
             left: 50%;
-            margin-top: -4px;
-            margin-left: -4px;
-            border-radius: 100px;
-           background: red;
-           animation: move 4s linear infinite;
+            margin-top: -8px;
+            margin-left: -8px;
+            border-radius: 8px;
+            animation-delay: -0.6s;
            
            
         }
         .circle-small{
-            position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             top: 50%;
             left: 50%;
             margin-top: -4px;
             margin-left: -4px;
-            border-radius: 100px;
-           background: red;
-        
-           animation: move 4s linear infinite;
+            border-radius: 4px;
+            animation-delay: -0.3s;
            
            
         }
-        .circle-container{
-              width:200px;
-              height:50px;
-              background: yellow;
-              position: absolute;
-            top:40%;
-            left: 40%;
+      
+      
+        .container{
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin-left: -32px;
+            margin-top: -32px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform-origin: 16px 16px;
             animation: rotate 5s linear infinite;
+          /*  animation: rotate 5s linear infinite;*/
              
         }
         @keyframes move {
@@ -90,15 +98,52 @@
             transform-origin: 4px 4px;
 
 }
+.container .row:nth-child(1)
+{transform: rotate(0deg);}
+.container .row:nth-child(2)
+{transform: rotate(90deg);}
+.container .row:nth-child(3)
+{transform: rotate(180deg);}
+.container .row:nth-child(4)
+{transform: rotate(270deg);}
 
+.container .row:nth-child(1)  [class*="circle-"]{
+    background-color: #1f4e5a;
+}
+.container .row:nth-child(2)  [class*="circle-"]{
+    background-color: #ff5955;
+}
+.container .row:nth-child(3)  [class*="circle-"]{
+    background-color: #ffb265;
+}
+.container .row:nth-child(4)  [class*="circle-"]{
+    background-color: #00a691;
+}
 
         </style>
 </head>
 <body>
-      <div class="circle-container">
+      <div class="container">
       <div class="row">
           <div class="circle-big"></div>
+          <div class="circle-mid"></div>
+          <div class="circle-small"></div>
           </div>
+          <div class="row">
+                <div class="circle-big"></div>
+                <div class="circle-mid"></div>
+                <div class="circle-small"></div>
+                </div>
+                <div class="row">
+                        <div class="circle-big"></div>
+                        <div class="circle-mid"></div>
+                        <div class="circle-small"></div>
+                        </div>
+                        <div class="row">
+                                <div class="circle-big"></div>
+                                <div class="circle-mid"></div>
+                                <div class="circle-small"></div>
+                                </div>
     </div>
     
 
