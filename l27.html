@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="input">文件后缀</input>
+    <button onclick="getSuffix()">确定</button></br>
+    <input id="input2">英语句子</input>
+    <button onclick="letterChange()">确定
+
+    <script>
+        function getSuffix() {
+            var file = document.getElementById("input").value;
+            file = file.slice(file.lastIndexOf(".") + 1, file.length);
+            document.getElementById("input").value = file;
+        }
+        function letterChange() {
+            
+            str=document.getElementById("input2").value;
+            var i, ss = str.toLowerCase().split(/\s+/);  
+    for (i = 0; i < ss.length; i++) {  
+        ss[i] = ss[i].slice(0, 1).toUpperCase() + ss[i].slice(1);  
+    }  
+    ss.join(' ');  
+    document.getElementById("input2").value=ss;
+}  
+            
+            
+        
+    </script>
+
+</body>
+
+</html>
