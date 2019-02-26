@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        
+        <button onclick="map1(num)">第二题</button>
+        <button onclick="map2(num)">第三题</button>
+        <button onclick="map3(num)">第四题</button>
+    <script>
+        var num=[0,1,2,3,4,5,6];
+      function map1(num)
+      { 
+        
+          for(i=0;i<num.length;i++)
+          { 
+              
+              if(num[i]==5)
+              return 0;
+              console.log(num[i]);
+              
+          }
+
+
+      }
+      function map2(num)
+      { 
+        
+          for(i=0;i<num.length;i++)
+          { if(num[i]==5);
+          else
+              console.log(num[i]);
+              
+              
+              
+          }
+}
+          function map3(num)
+          {
+              var a=[];
+            for(i=0;i<num.length;i++)
+          { 
+              a[i]="星期"+(i+1);
+              console.log(a[i]);
+          }
+          return a;
+          }
+    
+
+      
+    </script>
+</body>
+</html>
