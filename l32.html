@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <body>
+
+        <script>
+        function myFunction()
+        {
+        try
+        { 
+        var x=document.getElementById("input").value;
+        if(x=="")    throw "空";
+        if(isNaN(x)) throw "输入值有误";
+        
+        }
+        catch(err)
+        {
+        var y=document.getElementById("mess");
+        y.innerHTML="错误：" + err + "。";
+        }
+        }
+        </script>
+        
+       
+        <p>输入一个数字</p>
+        <input id="input" >
+        <button type="button" onclick="myFunction()">测试输入值</button>
+        <p id="mess"></p>
+        
+        </body>
+</body>
+</html>
