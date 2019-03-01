@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    .tabs{
+        background: gray;
+        width: 150px;
+        display:flex;
+    }
+    .tabs.tab{
+        
+     margin:0 10px;
+    }
+    .tab{
+        width: 70px;
+        text-align: center;
+        cursor: pointer;
+        border: 2px solid #000000 ;
+    }
+   .content{
+       background: wheat;
+       width: 150px;
+       height: 100px;
+   }
+    
+    .hidden{
+        display:none;
+    }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab">tab1</div>
+        <div class="tab">tab2</div>
+    </div>
+    <div class="content">
+        <div>tab1</div>
+        <div class="hidden">tab2</div>
+    </div>
+    <script>
+        var tabs=document.getElementsByClassName("tab");
+        for(let i=0;i<tabs.length;i++)
+        {
+            tabs[i].onclick=function(){
+                var divs=document.querySelectorAll(".content div");
+             
+                for(var j=0;j<divs.length;j++)
+                {
+                    divs[j].className="hidden"
+                }
+                divs[i].className=""
+            }
+        }
+        </script>
+    
+</body>
+</html>

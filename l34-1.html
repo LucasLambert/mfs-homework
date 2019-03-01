@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="clock"width="200"height="200"></canvas>
+    <script>
+        
+        function draw(){
+            
+        var now = new Date();     //定义时间
+var s = now.getSeconds();  //获取秒
+var m = now.getMinutes();   //获取分钟
+var h = now.getHours();    //获取小时
+//小时必须获取浮点类型，产生偏移（小时+分钟比）
+h= h + m/60;  
+//将24小时转换为12小时
+h=h>12?h-12:h;
+
+    
+        var ele=document.getElementById("clock");
+        
+        var ctx=ele.getContext("2d");
+      
+        
+        ctx.clearRect(0,0,500,500); 
+       
+        ctx.save();
+       
+        ctx.lineWidth=5;
+        ctx.strokeStyle="#0022dd";
+        ctx.beginPath();
+        ctx.arc(100,100,80,0,Math.PI*2);
+        
+        ctx.stroke();
+        ctx.closePath();
+       
+
+      ctx.restore();
+        for(var i=0;i<12;i++) {
+            ctx.save();
+            ctx.lineWidth=5;
+            ctx.translate(100,100);
+
+            var t= Math.PI/6*i;
+            var x=70*Math.sin(t);
+            var y=70*Math.cos(t);
+            ctx.beginPath();
+            ctx.moveTo(x,y);
+            ctx.lineTo(0.8*x,0.8*y);
+            ctx.stroke();
+        ctx.closePath();
+        ctx.restore();
+        }
+        
+
+       
+        
+        for(var i=0;i<60;i++) {
+            ctx.save();
+            ctx.lineWidth=3;
+            
+            ctx.translate(100,100);
+            var t= Math.PI/30*i;
+            var x=70*Math.sin(t);
+            var y=70*Math.cos(t);
+            ctx.moveTo(x,y);
+            ctx.lineTo(0.9*x,0.9*y);
+            ctx.stroke();
+        ctx.closePath();
+        ctx.restore();
+        }
+      
+
+        ctx.save();
+        ctx.translate(100,100);
+        ctx.lineWidth=5;
+        var t=Math.PI/6*h-Math.PI/2
+        ctx.beginPath();
+        ctx.moveTo(-9*Math.cos(t),-9*Math.sin(t));
+       
+        ctx.lineTo(25*Math.cos(t),25*Math.sin(t));
+        ctx.stroke();
+        ctx.closePath();
+        ctx.restore();
+        
+
+           ctx.save();
+           ctx.translate(100,100);
+        ctx.lineWidth=4;
+        var t=Math.PI/30*m-Math.PI/2
+        ctx.beginPath();
+        ctx.moveTo(-9*Math.cos(t),-9*Math.sin(t));
+        
+        ctx.lineTo(35*Math.cos(t),35*Math.sin(t));
+        ctx.stroke();
+        ctx.closePath();
+        ctx.restore();
+
+           ctx.save();
+
+             ctx.translate(100,100);
+        ctx.lineWidth=3;
+        ctx.strokeStyle="red";
+        var t=Math.PI/30*s-Math.PI/2
+        ctx.beginPath();
+        ctx.moveTo(-9*Math.cos(t),-9*Math.sin(t));
+       
+        ctx.lineTo(40*Math.cos(t),40*Math.sin(t));
+        ctx.stroke();
+        ctx.closePath();
+        ctx.restore();
+        ctx.save();
+
+       
+        ctx.lineWidth=4;
+        ctx.translate(100,100);
+        ctx.strokeStyle="red";
+        ctx.beginPath();
+        ctx.arc(42*Math.cos(t),42*Math.sin(t),5,0,Math.PI*2);
+        ctx.closePath();
+        
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(0,0,5,0,Math.PI*2);
+        ctx.stroke();
+        ctx.closePath();
+        ctx.restore();
+        ctx.restore();
+    
+        
+        }
+        draw();
+       setInterval(draw,1000);
+
+        </script>
+
+</body>
+</html>
