@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form id="signup" action="#" target="_blank" onsubmit="return onSignupFormSubmit()">
+        <p id="signup-error" style="color:red"></p>
+        <p>
+         用户名:
+         <input id="username" type="text" name="username">
+        </p>
+        <p>
+         口令:
+         <input type="password" id="password" name="password">
+        </p>
+        <p>
+         重复口令:
+         <input type="password" id="password2">
+        </p>
+        <p>
+         <button type="submit">提交</button>
+         <button type="reset">重置</button>
+        </p>
+
+        <script>
+            function onSignupFormSubmit(){
+            var mUser=document.getElementById("username");
+            var mPassword=document.getElementById("password");
+            var mPassword2=document.getElementById("password2");
+            var mError=document.getElementById("signup-error");
+            var username=mUser.value;
+            var password=mPassword.value;
+            var password2=mPassword2.value;
+            if(username.length>10||username.length<3)
+            {
+                mError.innerText="用户名必须是3-10位"
+                return false;
+            }
+            if(password.length<6||password.length>20)
+            {
+                mError.innerText="口令必须是6-20位"
+                return false;
+            }
+             if(password!=password2)
+             {
+                mError.innerText="两次密码需要输入一致"
+                 return false;
+
+             }
+            function onSignupFormSubmit(){
+                return false;
+            }
+            return true;
+            }
+            </script>
+        </form>
+</body>
+</html>
