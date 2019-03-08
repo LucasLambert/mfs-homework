@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+       <div>
+
+        <input id="addstr">str</input><input id="addclazz">clazz</input><input id="re1"></input><button onclick="onclick1()">add</button>
+       </div>
+       <input id="restr">str</input><input id="reclazz">clazz</input><input id="re2"></input><button onclick="onclick2()">remove</button>
+        </div>
+
+    <script>
+
+         var str="q we wqeqwe"
+         var clazz="we"
+
+        
+        
+         
+
+        function addClass(str,clazz)
+        {
+          
+         var re =new RegExp("^.* (" + clazz + ") .*$","gim")
+         var re2=new RegExp("^(" + clazz + ") .*$","gim")
+         var re3=new RegExp("^(" + clazz + ")$","gim")
+         var re4=new RegExp("^.* (" + clazz + ")$","gim")
+        if(str.match(re)||str.match(re2)||str.match(re3)||str.match(re4)){
+            str="类已存在";
+            return str
+        }
+        else{
+            str=str+" "+clazz;
+           return str
+        }
+        }
+
+        function removeClass(str,clazz){
+          
+            var re =new RegExp("^.* (" + clazz + ") .*$","gim")
+         var re2=new RegExp("^(" + clazz + ") .*$","gim")
+         var re3=new RegExp("^(" + clazz + ")$","gim")
+         var re4=new RegExp("^.* (" + clazz + ")$","gim")
+              if(str.match(re)||str.match(re2)||str.match(re3)||str.match(re4)){
+                  str=str.replace(clazz,"")
+                  return str;
+           
+        }
+             else{
+                str="类不存在";
+            return str
+             }
+        }
+              function onclick1(){
+                var addstr=document.getElementById("addstr").value
+         var addclazz=document.getElementById("addclazz").value
+              console.log(addClass(addstr,addclazz))
+                document.getElementById("re1").value=addClass(addstr,addclazz)
+              }
+              function onclick2(){
+                var restr=document.getElementById("restr").value
+         var reclazz=document.getElementById("reclazz").value
+                document.getElementById("re2").value=removeClass(restr,reclazz)
+                }
+
+        </script>
+    
+</body>
+</html>

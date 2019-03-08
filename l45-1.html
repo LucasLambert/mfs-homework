@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+       <input id="input"></input><button onclick="check(document.getElementById('input').value)">确定</button>
+
+    <script>
+
+        function check(str)
+        {
+          var  regexp1=/^([a-zA-Z]|(_))([a-zA-Z]|(_)|[0-9]){5,15}$/
+          var regexp2=/\d+/
+          var regexp3=/[a-z]+/
+          var regexp4=/[A-Z]+/
+          var regexp5=/_+/
+
+             if (str.match(regexp1))
+             if((str.match(regexp2)&&str.match(regexp3)&&str.match(regexp4))||
+             (str.match(regexp2)&&str.match(regexp3)&&str.match(regexp5))||
+             (str.match(regexp2)&&str.match(regexp5)&&str.match(regexp4))||
+             (str.match(regexp5)&&str.match(regexp3)&&str.match(regexp4))
+
+             )
+             console.log("通过")
+
+        }
+        </script>
+    
+</body>
+</html>
