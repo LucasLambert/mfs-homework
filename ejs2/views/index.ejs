@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  </head>
+  <body>
+    <form >
+     用户名：<input type="text" id="username"pattern="^[a-zA-Z]\w{5,17}" >
+     密码：<input type="password" id="password" pattern="^\w{6,18}">
+     重复密码<input type="password"id="r_password"></br>
+     <button type="submit"id="submit" >确定</button>
+
+    </form>
+    <script>
+
+      var submit=document.getElementById("submit")
+      submit.addEventListener("click",
+   function check_Name()
+     {
+
+      var username=$('#username').val()
+      var m_username=document.getElementById("username")
+
+　$.ajax({
+　　　　method : "POST",
+　　　　url : "/check",
+　　　　dataType : "text",
+　　　　data : {username},
+        async:false ,
+　　success : function(data) 
+　　{
+var req=data
+if(req=="重复")
+{
+ m_username.setCustomValidity("账号已存在")
+}
+
+}
+
+
+　　,error:function(){
+　　
+　　}
+　　});
+})
+
+submit.addEventListener("click",
+   function check_repeat()
+   {
+    var password=$('#password').val()
+    var r_password=$('#r_password').val()
+    var m_Rpasswod=document.getElementById("r_password")
+if(password!=r_password)
+{
+   m_Rpasswod.setCustomValidity("输入不一致")
+
+}
+else{
+  m_Rpasswod.setCustomValidity("")
+}
+
+   })
+
+    </script>
+  </body>
+</html>
