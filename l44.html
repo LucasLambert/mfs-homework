@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="date"></div>
+    <input id="cx">圆心x坐标</input>
+    <input id="cy">圆心y坐标</input>
+    <input id="dx">一个点的x坐标</input>
+    <input id="dy">一个点的y坐标</input>
+    <button onclick="check()">确定</button>
+    <div id="circle"></div>
+    <script>
+    var mDate=new Date();
+    mDate.setFullYear(2017);
+    mDate.setMonth(3);
+    mDate.setDate(5);
+    mDate.setHours(10);
+    mDate.setMinutes(3);
+    mDate.setSeconds(8);
+  var d_date= document.getElementById("date");
+  d_date.innerText=mDate.toString();
+
+  
+function check(){
+    var cx=parseFloat(document.getElementById("cx").value);
+  var cy=parseFloat(document.getElementById("cy").value);
+  var dx=parseFloat(document.getElementById("dx").value);
+  var dy=parseFloat(document.getElementById("dy").value);
+  var d_circle= document.getElementById("circle");
+  if (isNaN(cx)||isNaN(cy)||isNaN(dx)||isNaN(dy))
+  {
+alert("输入值有误")
+  }
+  else if (Math.abs((Math.pow(cx-dx,2)+Math.pow(cy-dy,2)))>1)
+{
+    
+    d_circle.innerText=("在圆外")
+}
+else{
+    d_circle.innerText=("在圆内")
+}
+}
+    </script>
+
+    
+</body>
+</html>

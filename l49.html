@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+      
+
+/***************************************************************************/
+function Buy(type) {
+    var ball;
+    if (type == "Basketball") {
+        ball = new Basketball();
+    } else if (type == "Football") {
+        ball = new Football();
+    }
+    ball.introduction = function () {
+        console.log(this.name);
+    }
+    return ball;
+
+}
+
+function Basketball() {
+    this.name="这是篮球"
+}
+function Football() {
+    this.name="这是足球"
+}
+
+var ball1 = Buy("Basketball");
+ball1.introduction();
+var ball2 = Buy("Football");
+ball2.introduction();
+
+/**************************************************************************************/
+/****************************************************************************************/
+
+function Singleton(name){
+    this.name = name;
+};
+Singleton.prototype.getName = function(){
+    return this.name;
+}
+
+Singleton.getInstance = function() {
+    if(!this.instance) {
+        this.instance = new Singleton();
+    }
+    return this.instance;
+}
+
+var a = Singleton.getInstance();
+var b = Singleton.getInstance();
+
+console.log(a == b) 
+/*********************************************************************************************/
+
+  function Animals(){
+   
+}
+Animals.prototype.eat=function(){
+
+}
+Animals.prototype.sleep=function(){
+    
+}
+
+function Human(){}
+Human.prototype=new Animals()
+Human.prototype.eat=function(){
+    console.log("人吃")
+}
+Human.prototype.sleep=function(){
+    console.log("人睡")
+}
+function Dog(){}
+Dog.prototype=new Animals()
+Dog.prototype.eat=function(){
+    console.log("狗吃")
+}
+Dog.prototype.sleep=function(){
+    console.log("狗睡")
+}
+
+var h1=new Human()
+var d1=new Dog()
+h1.sleep()
+d1.eat()
+
+
+
+    </script>
+
+</body>
+
+</html>

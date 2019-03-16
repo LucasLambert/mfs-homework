@@ -6,16 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
-    
- <script>
 
-     function callback(data)
-     {
-         console.log(data)
-             }
-     </script>
-     <script src="http://a.com/js/l42.js">
+<body>
+    <iframe src="http://a.com/js/l39.html" frameborder="0" width="1000"height="1000"></iframe>
+
+    <script>
+
+      document.domain="a.com";
+        setTimeout(function(){
+            console.log(window.frames[0].document)
+        }
+
+
+        )
         </script>
 
 </body>
