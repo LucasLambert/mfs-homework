@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+</head>
+
+<body>
+    <script>
+        function ajaxGet(url) {
+            return new Promise((resolve, reject) => {
+               
+                $.ajax({
+                    url: url,
+                    dataType: "json",
+                    data: {
+                        page: pageNum++,
+                        pageSize: pageSize
+
+
+                    }
+                }).done((data) => {
+                    resolve(data)
+                }).fail((xhr, status, err) => {
+                    reject(err)
+                })
+            })
+        }
+
+
+        /*  function ajaxGet(url){
+   return new Promise((resolve,reject)=>{
+       $.ajax({
+               url: url,
+               dataType: "json"
+           }).done((data) => {
+               resolve(data)
+           }).fail((xhr, status, err) => {
+               reject(err)
+           })
+   })
+          }*/
+          let pageNum=1
+          let pageSize=30
+        /*ajaxGet("https://learning-api.mafengshe.com/news").then(
+
+            data => {
+                console.log(data)
+
+                return ajaxGet("https://learning-api.mafengshe.com/news")
+            }).then(
+
+                data => {
+                    console.log(data)
+
+                    return ajaxGet("https://learning-api.mafengshe.com/news")
+                }
+            )*/
+
+function chuanxing(){
+    ajaxGet("https://learning-api.mafengshe.com/news").then(
+        data => {
+                console.log(data)
+                if(pageNum<11)
+                chuanxing()}
+                )
+
+}
+//chuanxing()
+
+function bingxing(){
+    while(true){
+    if(pageNum<11){
+    ajaxGet("https://learning-api.mafengshe.com/news").then(
+        data => {
+                console.log(data)
+                
+    })
+    
+}
+else return
+}
+}
+bingxing()
+
+    </script>
+
+</body>
+
+</html>
