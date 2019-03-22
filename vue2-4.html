@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       firstName: <input type="text" name="" id=""v-model="firstName">
+       lastName: <input type="text" name="" id=""v-model="lastName">
+        <div>{{fullName}}</div>
+    </div>
+    
+    <script>
+    var app=new Vue({
+        el:"#app",
+        data:{
+           
+           
+           firstName:"",
+           lastName:"",
+           
+        },
+    
+      computed:{
+        fullName:function(){
+            return this.firstName+this.lastName
+        }
+      }
+      ,
+     
+        filters:{
+            upper:function(str){
+                return str.toUpperCase()
+            }
+        }    ,
+          
+          
+
+
+    })
+    
+
+    </script>
+</body>
+</html>

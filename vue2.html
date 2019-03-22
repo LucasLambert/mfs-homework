@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="show" alt="">
+    </div>
+    
+    <script>
+    var app=new Vue({
+        el:"#app",
+        data:{
+           data:[
+               "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553248226232&di=a0bf57b7c8a25fc2a0fcb89a6c209193&imgtype=0&src=http%3A%2F%2Fpic6.58cdn.com.cn%2Fzhuanzh%2Fn_v21ed9c014da1942c19cd6684d77a9cead.jpg%3Fw%3D750%26h%3D0",
+               "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553248226231&di=9ade4301b21cf414084aa1e1e73baddc&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201508%2F09%2F20150809094129_U5h2E.thumb.700_0.jpeg",
+               "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553248226231&di=2c6b72377730426b4376a33a05681b60&imgtype=0&src=http%3A%2F%2Fshihuo.hupucdn.com%2Fucditor%2F20171101%2F1170x780_0309d41a96b9a6850e93b8f390cf1fa1.jpeg%3FimageView2%2F2%2Fw%2F700%2Finterlace%2F1%257cimageMogr2%2Fformat%2Fjpg"
+           ],
+           show:""
+           
+        },
+    
+        
+        methods:{
+            change:function(){
+                let i=0
+                setInterval(function(){
+                    app.show=app.data[i]
+                    i++
+                    if(i==app.data.length)
+                    i=0
+                    return app.show
+                },1000)    
+                
+            }        },
+            created:function(){
+                       this.change()
+                   },
+          
+
+    })
+
+    </script>
+</body>
+</html>
