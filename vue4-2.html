@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+    ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .completed{
+        text-decoration: line-through;
+        
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+     <input type="text"v-model="newTodo"@keyup.enter="addNewTodo">
+     <ul>
+            <input type="checkbox" v-model="allDone"> 全选
+        <li v-for="(i,idx) in filterTodos":class="i.state==1?'completed':''">
+         <input type="checkbox" v-model="i.state">   {{i.name}} <button @click=delete1(idx)>删除</button>
+        </li>
+        <button @click="vis='all'">all</button>
+        <button @click="vis='active'">active</button>
+        <button @click="vis='completed'">completed</button>
+        <button @click="delete2">clear all</button>
+     </ul>
+    </input>   
+        
+    </div>
+     <script>
+         var app=new Vue({
+             el:"#app",
+             data:{
+                 todos:[{name:"Lucas",state:1},{name:"Lucas",state:0}],
+                 newTodo:"",
+                 vis:"all",
+                 allDone:'',
+
+             },
+             computed:{
+                 filterTodos:function(){
+                     if(this.vis=="all")
+                     return this.todos
+                     else if(this.vis=="active"){
+                         return this.todos.filter(i=>i.state==0)
+                     }
+                     else if(this.vis=="completed"){
+                         return this.todos.filter(i=>i.state==1)
+                     }
+                 }
+
+             }
+             ,
+             methods:{
+                 addNewTodo:function(){
+                     var todo={name:this.newTodo,state:0}
+                     this.todos.push(todo)
+                     this.newTodo="";
+                 },
+                 delete1:function(idx){
+                      this.todos.splice(idx,1)
+                  
+                 },
+                 delete2:function(){
+                      this.todos=this.todos.filter(i=>i.state==0)
+                  
+                 }
+
+                 
+                 
+             },
+             watch:{
+                 allDone:function(val){
+                this.todos=this.todos.map(i=>{
+                    i.state=val
+                    return i
+                })     
+                }
+             }
+         })
+     
+     
+     </script>   
+</body>
+</html>

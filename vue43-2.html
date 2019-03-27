@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+       span{
+           cursor: pointer;
+       }
+       .folder{
+           font-weight: bold;
+       }
+    
+    </style>
+</head>
+<body>
+        <div id = "app">
+                <mtree :folder = "tree" ></mtree>
+             
+        </div>
+
+        <script>
+              Vue.component('mtree', {
+            name:"tree",
+            template:`<ul>
+                        <li v-for = "(item,idx) in folder">
+                            <span  @click='op(idx)' :mitem=folder :class="item.isfolder?'folder':''">{{ item.label  }}</span>
+                            <tree v-if = "item.children && item.show" :folder = "item.children" ></tree>
+                        </li>
+                        <button @click="additem">+</button>
+                    </ul>`,
+             props:["folder"],
+
+             methods:{
+                 op:function(idx){
+                     
+                   this.folder[idx].show=!this.folder[idx].show
+                   console.log(this.folder)
+                 
+                 }
+                 ,
+                 additem:function(){
+                    this.folder.push({ label:"new stuff"})
+
+                 }
+                 
+
+             }
+            
+        })
+
+
+        var app=new Vue({
+             el:'#app',
+             data:{
+                 tree:[
+                    {
+                        id:1,
+                        label:"1级目录1",
+                        show:true,
+                        isfolder:true,
+                        children:[
+                            {
+                                id:"1-1",
+                                label:"1.1目录"
+                            },
+                            {
+                                id:"1-2",
+                                label:"1.2目录"
+                            },
+                            {
+                                id:"1-3",
+                                label:"1.3目录"
+                            },
+                        ]
+                    },
+                    {
+                        id:2,
+                        label:"1级目录2",
+                        show:false
+                    },
+                    {
+                        id:3,
+                        label:"1级目录3",
+                        isfolder:true,
+                        show:false,
+                        children:[
+                            {
+                                id:"3-1",
+                                label:"3.1目录"
+                            },
+                            {
+                                id:"3-2",
+                                label:"3.2目录",
+                                show:false,
+                                isfolder:true,
+                                children:[
+                                    {
+                                        id:"3-2-1",
+                                        label:"3.2.1目录"
+                                    },
+                                    {
+                                        id:"3-2-2",
+                                        label:"3.2.2目录"
+                                    },
+                                    {
+                                        id:"3-2-3",
+                                        label:"3.2.3目录"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        id:4,
+                        label:"1级目录4",
+                        show:false,
+                        isfolder:true,
+                        children:[
+                            {
+                                id:"4-1",
+                                label:"4.1目录"
+                            },
+                            {
+                                id:"4-2",
+                                label:"4.2目录",
+                                show:false,
+                                isfolder:true,
+                                children:[
+                                    {
+                                        id:"4-2-1",
+                                        label:"4.2.1目录"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        id:5,
+                        label:"1级目录5",
+                        show:false,
+                        isfolder:true,
+                        children:[
+                            {
+                                id:"5-1",
+                                label:"5.1目录",
+                                show:false,
+                                isfolder:true,
+                                children:[
+                                    {
+                                        id:"5-1-1",
+                                        label:"5.1.1目录"
+                                    },
+                                    {
+                                        id:"5-1-2",
+                                        label:"5.1.2目录",
+                                        show:false,
+                                        isfolder:true,
+                                        children:[
+                                            {
+                                                id:"5-1-2-1",
+                                                label:"5.1.2.1目录"
+                                            },
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                id:"5-2",
+                                label:"5.2目录",
+                                show:false
+                            }
+                        ]
+                    },
+                ]
+
+
+             }
+
+
+
+        })
+        
+        
+        </script>
+    
+</body>
+</html>
