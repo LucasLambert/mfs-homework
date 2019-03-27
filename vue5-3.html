@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style >
+   .list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to
+/* .list-leave-active for below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+    </style>
+</head>
+<body>
+    <div id="app"> 
+
+        <button @click='add' >add</button><button @click='remove'>remove</button></br>
+        <transition-group name="list" tag="p"><span v-for="i in num":key="i" >{{i}}</span></transition-group>
+    </div>
+
+
+    <script>
+        var app=new Vue({
+            el:'#app',
+            data:{
+              num:[1,2,3],
+
+            }
+            ,
+            methods:{
+                add:function(){
+                    
+                    var i=this.num[this.num.length-1]
+                    this.num.push(i+1)
+                   
+                }
+                ,
+                remove:function(){
+                    if(num.length!=0)
+                    this.num.splice(3,1)
+                 
+                }
+            }
+
+        })
+    </script>
+    
+</body>
+</html>
